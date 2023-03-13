@@ -112,6 +112,10 @@ user_based_mean = progress_less_than_10 * .22 + progress_between_10_45 * .24 + p
 
 user_based_mean # 4.800257704672543
 
+# other option
+(df['Progress']/df['Progress'].sum()).sum()
+(df['Rating'].mean() * (df['Progress']/df['Progress'].sum())).sum()
+
 ############################################
 # Functionalized User-Based Weighted Average
 ############################################
@@ -128,10 +132,6 @@ def user_based_weighted_average(dataframe, w1=.22, w2=.24, w3=.26, w4=.28):
 user_based_weighted_average(df) # 4.800257704672543
 user_based_weighted_average(df, .10, .20, .30, .40) # 4.819874780755226
 
-# Progress based
-# (df['Progress']/df['Progress'].sum()).sum()
-# (df['Rating'].mean() * (df['Progress']/df['Progress'].sum())).sum()
-
 ############################################
 # Weighted Rating
 ############################################
@@ -141,3 +141,4 @@ def weighted_rating(dataframe, time_based=.50, user_based=.50):
 
 weighted_rating(df) # 4.782641693469868
 weighted_rating(df, .2, .8) # 4.793211300191473
+
