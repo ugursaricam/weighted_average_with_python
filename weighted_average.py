@@ -141,12 +141,3 @@ def weighted_rating(dataframe, time_based=.50, user_based=.50):
 
 weighted_rating(df) # 4.782641693469868
 weighted_rating(df, .2, .8) # 4.793211300191473
-
-# SOR
-# df.groupby('Timestamp').agg({'Rating': 'mean'}).sort_values('Timestamp', ascending=False)
-# df['segment'] = pd.qcut(df['Timestamp'].rank(method='first'), 4, labels=['D', 'C', 'B', 'A'])
-## df['segment'] = pd.cut(df['days'], 4, labels=['A', 'B', 'C', 'D'])
-## df[df['days'] <= 161]['Rating'].mean()
-# df.groupby('segment').agg({'Rating' : 'mean'})
-
-
